@@ -5,7 +5,8 @@ def place_market_order(client, symbol, side, quantity):
         symbol=symbol,
         side=SIDE_BUY if side == "BUY" else SIDE_SELL,
         type=ORDER_TYPE_MARKET,
-        quantity=quantity
+        quantity=quantity,
+        recvWindow=5000
     )
 
 def place_limit_order(client, symbol, side, quantity, price):
@@ -15,5 +16,6 @@ def place_limit_order(client, symbol, side, quantity, price):
         type=ORDER_TYPE_LIMIT,
         quantity=quantity,
         price=price,
-        timeInForce=TIME_IN_FORCE_GTC
+        timeInForce=TIME_IN_FORCE_GTC,
+        recvWindow=5000
     )
